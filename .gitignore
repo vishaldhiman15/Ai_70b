@@ -35,6 +35,12 @@ wandb/
 venv/
 *.env
 
+# Node / Frontend
+node_modules/
+ui/node_modules/
+ui/dist/
+ui/.vite/
+
 # IDE
 .vscode/
 .idea/
