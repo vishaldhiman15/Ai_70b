@@ -3,7 +3,8 @@ import { motion, AnimatePresence } from 'framer-motion'
 import { Plus, Send, StopCircle, Paperclip, X, Sparkles, Bot, Hash, ChevronDown, Rocket, Zap, Globe, Cpu } from 'lucide-react'
 import { marked } from 'marked'
 
-const API = import.meta.env.VITE_API_URL || 'http://localhost:11435'
+// In dev: uses local Python server. In production (Vercel): same-origin /api/*
+const API = import.meta.env.VITE_API_URL ?? (import.meta.env.DEV ? 'http://localhost:11435' : '')
 
 // Configure marked for safe, clean rendering
 marked.setOptions({ breaks: true, gfm: true })
