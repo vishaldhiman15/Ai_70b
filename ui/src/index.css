@@ -1,0 +1,146 @@
+@import "tailwindcss";
+
+@theme {
+  --color-base: #09090f;
+  --color-surface: #0f0f18;
+  --color-elevated: #161622;
+  --color-input: #1c1c2a;
+  --color-border: rgba(255,255,255,0.07);
+  --color-primary: #eeeef5;
+  --color-secondary: #9898b8;
+  --color-muted: #52526e;
+  --color-accent1: #7c6aff;
+  --color-accent2: #a855f7;
+
+  --font-sans: 'Inter', ui-sans-serif, system-ui, sans-serif;
+}
+
+@layer base {
+  *, *::before, *::after {
+    box-sizing: border-box;
+  }
+  html, body, #root {
+    height: 100%;
+    width: 100%;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+  }
+  body {
+    @apply bg-base text-primary antialiased;
+    font-family: 'Inter', ui-sans-serif, system-ui, sans-serif;
+  }
+}
+
+/* ── Custom Scrollbar ───────────────────────────────────────── */
+::-webkit-scrollbar { width: 4px; height: 4px; }
+::-webkit-scrollbar-track { background: transparent; }
+::-webkit-scrollbar-thumb {
+  background: rgba(124, 106, 255, 0.2);
+  border-radius: 99px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(124, 106, 255, 0.4);
+}
+
+/* ── Select Styling ─────────────────────────────────────────── */
+select {
+  color: #eeeef5;
+}
+select option {
+  background: #161622;
+  color: #eeeef5;
+}
+
+/* ── Markdown / Prose ───────────────────────────────────────── */
+.markdown-body { line-height: 1.75; }
+.markdown-body p { margin: 0 0 1rem; }
+.markdown-body p:last-child { margin-bottom: 0; }
+.markdown-body h1, .markdown-body h2, .markdown-body h3 {
+  font-weight: 600;
+  margin: 1.25rem 0 0.5rem;
+  color: #eeeef5;
+}
+.markdown-body h1 { font-size: 1.4rem; }
+.markdown-body h2 { font-size: 1.2rem; }
+.markdown-body h3 { font-size: 1.05rem; }
+.markdown-body ul, .markdown-body ol {
+  margin: 0.5rem 0 1rem 1.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+}
+.markdown-body li { line-height: 1.6; }
+.markdown-body code {
+  background: rgba(124,106,255,0.12);
+  color: #c4b5fd;
+  padding: 0.15em 0.45em;
+  border-radius: 5px;
+  font-size: 0.875em;
+  font-family: 'Fira Code', 'Cascadia Code', monospace;
+}
+.markdown-body pre {
+  background: #0d0d17;
+  border: 1px solid rgba(255,255,255,0.06);
+  border-radius: 12px;
+  padding: 1rem 1.25rem;
+  overflow-x: auto;
+  margin: 0.75rem 0;
+}
+.markdown-body pre code {
+  background: transparent;
+  color: #e2e2f0;
+  padding: 0;
+  border-radius: 0;
+  font-size: 0.875rem;
+}
+.markdown-body blockquote {
+  border-left: 3px solid #7c6aff;
+  padding: 0.5rem 0 0.5rem 1rem;
+  margin: 0.75rem 0;
+  color: #9898b8;
+  font-style: italic;
+}
+.markdown-body a {
+  color: #a78bfa;
+  text-decoration: underline;
+  text-decoration-color: rgba(167,139,250,0.4);
+}
+.markdown-body a:hover { text-decoration-color: rgba(167,139,250,0.8); }
+.markdown-body hr {
+  border: none;
+  border-top: 1px solid rgba(255,255,255,0.07);
+  margin: 1rem 0;
+}
+.markdown-body table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 0.75rem 0;
+  font-size: 0.9rem;
+}
+.markdown-body th {
+  background: rgba(124,106,255,0.1);
+  color: #c4b5fd;
+  font-weight: 600;
+  padding: 0.5rem 0.75rem;
+  border: 1px solid rgba(255,255,255,0.07);
+  text-align: left;
+}
+.markdown-body td {
+  padding: 0.5rem 0.75rem;
+  border: 1px solid rgba(255,255,255,0.07);
+}
+.markdown-body tr:hover td { background: rgba(255,255,255,0.02); }
+
+/* ── Glow Pulse Animation ───────────────────────────────────── */
+@keyframes glow-pulse {
+  0%, 100% { box-shadow: 0 0 20px rgba(124,106,255,0.4), 0 0 40px rgba(168,85,247,0.2); }
+  50%       { box-shadow: 0 0 60px rgba(124,106,255,0.8), 0 0 100px rgba(168,85,247,0.5); }
+}
+.animate-glow-pulse { animation: glow-pulse 3s ease-in-out infinite; }
+
+/* ── Shimmer for skeleton ───────────────────────────────────── */
+@keyframes shimmer {
+  0%   { background-position: -200% center; }
+  100% { background-position: 200% center; }
+}
