@@ -1,0 +1,10 @@
+services:
+  - type: web
+    name: mythosai-api
+    runtime: python
+    buildCommand: pip install -r requirements-api.txt
+    startCommand: python scripts/api.py
+    envVars:
+      - key: GROQ_API_KEY
+        sync: false
+    healthCheckPath: /api/status

@@ -3,7 +3,7 @@ import { motion, AnimatePresence } from 'framer-motion'
 import { Plus, Send, StopCircle, Paperclip, X, Sparkles, Bot, Hash, ChevronDown, Rocket, Zap, Globe, Cpu } from 'lucide-react'
 import { marked } from 'marked'
 
-const API = 'http://localhost:11435'
+const API = import.meta.env.VITE_API_URL || 'http://localhost:11435'
 
 // Configure marked for safe, clean rendering
 marked.setOptions({ breaks: true, gfm: true })
